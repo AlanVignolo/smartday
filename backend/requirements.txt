@@ -1,0 +1,76 @@
+# ============================================================
+# requirements.txt
+# Lista de librerías (paquetes externos) que necesita el
+# backend para funcionar en producción.
+# Se instalan con: pip install -r requirements.txt
+# ============================================================
+
+# --- Web Framework ---
+# fastapi: el "esqueleto" del servidor web. Define las rutas
+#          (endpoints) a las que el frontend le hace pedidos.
+fastapi==0.109.0
+# uvicorn: el servidor que "levanta" FastAPI y escucha conexiones.
+#          [standard] incluye extras como recarga automática.
+uvicorn[standard]==0.27.0
+
+# --- Data Validation ---
+# pydantic: valida que los datos que llegan tengan el formato
+#           correcto (ej: que "edad" sea un número, no texto).
+pydantic==2.5.3
+# pydantic-settings: permite leer configuración desde variables
+#                    de entorno o archivos .env de forma segura.
+pydantic-settings==2.1.0
+
+# --- Database ---
+# sqlalchemy: ORM (Object Relational Mapper). Permite hablar con
+#             la base de datos usando Python en vez de SQL puro.
+sqlalchemy==2.0.25
+# asyncpg: driver para conectarse a PostgreSQL de forma asíncrona
+#          (no bloquea el servidor mientras espera la BD).
+asyncpg==0.29.0
+# alembic: maneja las "migraciones", es decir, los cambios en la
+#          estructura de la base de datos a lo largo del tiempo.
+alembic==1.13.1
+
+# --- Auth ---
+# python-jose: genera y valida tokens JWT (los "pases" que
+#              identifican a un usuario logueado).
+python-jose[cryptography]==3.3.0
+# passlib: hashea (encripta de forma segura) las contraseñas
+#          antes de guardarlas en la base de datos.
+passlib[bcrypt]==1.7.4
+
+# --- Cache & Queue ---
+# redis: base de datos en memoria, usada para guardar datos
+#        temporales muy rápido (ej: sesiones, caché).
+redis==5.0.1
+# celery: ejecuta tareas en segundo plano (ej: enviar un email
+#         sin que el usuario tenga que esperar).
+celery[redis]==5.3.6
+
+# --- AI/ML ---
+# scikit-learn: librería de machine learning para entrenar
+#               modelos y hacer predicciones.
+scikit-learn>=1.4.0
+# numpy: operaciones matemáticas con arrays y matrices,
+#        base de casi todo el trabajo con datos.
+numpy>=1.26.0
+# pandas: maneja tablas de datos (DataFrames), similar a Excel
+#         pero desde código Python.
+pandas>=2.1.0
+
+# --- Notifications ---
+# firebase-admin: SDK oficial de Firebase para enviar
+#                 notificaciones push a móviles.
+firebase-admin==6.3.0
+
+# --- Utilities ---
+# python-dotenv: lee el archivo .env y carga las variables de
+#                entorno (claves secretas, configuración, etc.).
+python-dotenv==1.0.0
+# httpx: cliente HTTP para hacer pedidos a otras APIs externas
+#        (equivalente a "fetch" en JavaScript).
+httpx==0.26.0
+# python-multipart: permite recibir archivos subidos por el
+#                   usuario (formularios con upload de archivos).
+python-multipart==0.0.6

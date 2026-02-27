@@ -1,0 +1,43 @@
+# ============================================================
+# requirements-dev.txt
+# Librerías que solo se usan durante el DESARROLLO.
+# NO se instalan en producción (el servidor real).
+# Se instalan con: pip install -r requirements-dev.txt
+#
+# La primera línea incluye todo lo de requirements.txt también.
+# ============================================================
+-r requirements.txt
+
+# --- Testing (pruebas automáticas) ---
+# pytest: el framework para escribir y correr tests (pruebas
+#         que verifican que el código funciona bien).
+pytest==7.4.4
+# pytest-cov: mide qué porcentaje del código está cubierto
+#             por tests (coverage report).
+pytest-cov==4.1.0
+# pytest-asyncio: permite testear código asíncrono (async/await)
+#                 con pytest.
+pytest-asyncio==0.23.3
+# httpx: acá se usa para simular pedidos HTTP en los tests,
+#        sin necesidad de levantar el servidor real.
+httpx==0.26.0
+# factory-boy: crea datos de prueba falsos (ej: usuarios ficticios)
+#              de forma fácil para usar en los tests.
+factory-boy==3.3.1
+
+# --- Code Quality (calidad de código) ---
+# black: formatea el código automáticamente con un estilo uniforme.
+#        Elimina discusiones sobre indentación, espacios, etc.
+black==24.1.0
+# isort: ordena los imports al principio de cada archivo de forma
+#        automática y consistente.
+isort==5.13.2
+# flake8: "linter" que detecta errores de estilo y posibles bugs
+#         antes de que el código se ejecute.
+flake8==7.0.0
+# mypy: verifica los tipos de datos estáticamente (ej: avisa si
+#       pasás un texto donde se esperaba un número).
+mypy==1.8.0
+# pre-commit: ejecuta automáticamente black, isort, flake8, etc.
+#             antes de cada git commit, para mantener el código limpio.
+pre-commit==3.6.0
